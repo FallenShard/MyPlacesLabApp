@@ -29,6 +29,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.fsi.myplaces.MainActivity" />
         </activity>
+        <activity
+            android:name=".EditMyPlaceActivity"
+            android:label="@string/title_activity_edit_my_place"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fsi.myplaces.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ViewMyPlaceActivity"
+            android:label="@string/title_activity_view_my_place"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.fsi.myplaces.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

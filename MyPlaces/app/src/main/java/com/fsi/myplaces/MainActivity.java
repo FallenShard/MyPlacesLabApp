@@ -1,5 +1,6 @@
 package com.fsi.myplaces;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -10,13 +11,14 @@ import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity
 {
+    public static final int NEW_PLACE = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -41,7 +43,8 @@ public class MainActivity extends ActionBarActivity
 
             case R.id.new_place_item:
             {
-                Toast.makeText(this, "New Place!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, EditMyPlaceActivity.class);
+                startActivityForResult(intent, NEW_PLACE);
                 break;
             }
 
@@ -61,5 +64,13 @@ public class MainActivity extends ActionBarActivity
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        if (requestCode == NEW_PLACE && resultCode == Activity.RESULT_OK)
+        {
+            Toast.makeText(this, "New place added!", Toast.LENGTH_LONG).show();
+        }
     }
 }
